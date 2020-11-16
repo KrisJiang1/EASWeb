@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.ScoreDao">
+
+    <!--<insert id="insertScore" parameterType="Score">-->
+        <!--insert into EAS_SCORE values (#{scoreId},#{student.studentId},#{subject.subjectId},#{subjectScore});-->
+    <!--</insert>-->
+
+
+    <!--<update id="updateScore" parameterType="Score">-->
+        <!--update EAS_SCORE-->
+        <!--<set>-->
+            <!--<if test = 'subjectScore != null and subjectScore!= "" '>-->
+                <!--subject_Score = #{subjectScore},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where student_id = #{student.studentId} and subject_id = #{subject.subjectId}-->
+    <!--</update>-->
+
+
+    <!--<select id="selectScore" resultType="Score">-->
+        <!--select * from EAS_SCORE sc-->
+        <!--inner join EAS_STUDENT s on sc.STUDENT_ID = s.STUDENT_ID-->
+        <!--inner join EAS_SUBJECT su on sc.SUBJECT_ID = su.SUBJECT_ID-->
+        <!--<trim prefix="where" suffixOverrides="and|or" prefixOverrides="and|or">-->
+            <!--<if test = 'student != null and student.studentId!= null and student.studentId != "" '>-->
+                <!--student_id = #{student.studentId},-->
+            <!--</if>-->
+            <!--<if test = 'subject != null and subject.subjectId!= null and  subject.subjectId != "" '>-->
+                <!--subject_id = #{subject.subjectId},-->
+            <!--</if>-->
+            <!--<if test = 'subjectScore != null and subjectScore!= "" '>-->
+                <!--subject_Score = #{subjectScore},-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--group by sc.score_Id-->
+
+    <!--</select>-->
+
+    <!--<select id="selectAllScore" resultType="Score">-->
+        <!--select * from EAS_SCORE sc-->
+        <!--inner join EAS_STUDENT s on sc.STUDENT_ID = s.STUDENT_ID-->
+        <!--inner join EAS_SUBJECT su on sc.SUBJECT_ID = su.SUBJECT_ID-->
+        <!--group by sc.score_Id-->
+    <!--</select>-->
+</mapper>

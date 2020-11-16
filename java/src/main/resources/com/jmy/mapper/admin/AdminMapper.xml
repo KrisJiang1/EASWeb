@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.sys.AdminDao">
+
+    <!--<insert id="insertAdmin" parameterType="Admin">-->
+        <!--insert into EAS_ADMIN values (#{adminId},#{adminAccountNum},#{adminPwd},#{adminAccessLevel})-->
+    <!--</insert>-->
+
+
+    <!--<update id="updateAdmin" parameterType="Admin">-->
+        <!--update EAS_ADMIN-->
+        <!--<set>-->
+            <!--<if test = 'adminPwd != null and adminPwd!= "" '>-->
+                <!--admin_Pwd = #{adminPwd},-->
+            <!--</if>-->
+            <!--<if test = 'adminAccessLevel != null and  adminAccessLevel != "" '>-->
+                <!--admin_AccessLevel = #{adminAccessLevel},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where admin_Id = #{adminId}-->
+    <!--</update>-->
+
+
+    <!--<select id="selectAdmin" resultType="Admin">-->
+        <!--select * from EAS_ADMIN-->
+        <!--<trim prefix="where" suffixOverrides="and|or" prefixOverrides="and|or">-->
+            <!--<if test = 'adminAccountNum != null and  adminAccountNum != "" '>-->
+                <!--admin_AccountNum = #{adminAccountNum} and-->
+            <!--</if>-->
+            <!--<if test = 'adminAccessLevel != null and  adminAccessLevel != "" '>-->
+                <!--admin_AccessLevel = #{adminAccessLevel}-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--order by ADMIN_ID-->
+
+    <!--</select>-->
+
+    <!--<select id="selectAllAdmin" resultType="Admin">-->
+        <!--select * from EAS_ADMIN order by ADMIN_ID-->
+    <!--</select>-->
+</mapper>

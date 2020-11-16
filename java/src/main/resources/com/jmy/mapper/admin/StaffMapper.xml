@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.StaffDao">
+
+    <!--<resultMap id="staffMap" type="Staff">-->
+        <!--<id column="staff_Id" property="staffId"/>-->
+        <!--<result column="staff_Name" property="staffName"/>-->
+        <!--<result column="staff_Sex" property="staffSex"/>-->
+        <!--<result column="staff_Phone" property="staffPhone"/>-->
+        <!--<result column="staff_IdNum" property="staffIdNum"/>-->
+        <!--<result column="staff_Address" property="staffAddress"/>-->
+
+        <!--<association property="staffPost" javaType="Post">-->
+            <!--<id column="post_Id" property="postId"/>-->
+            <!--<result column="post_Name" property="postName"/>-->
+        <!--</association>-->
+
+    <!--</resultMap>-->
+
+    <!--<select id="selectMaxId" resultType="java.lang.Integer">-->
+        <!--select NVL(MAX(STAFF_ID),0)+1 from EAS_STAFF-->
+    <!--</select>-->
+
+    <!--<insert id="insertStaff" parameterType="Staff">-->
+        <!--insert into EAS_STAFF values-->
+        <!--(#{staffId},#{staffName},#{staffSex},#{staffPhone},#{staffIdNum},#{staffPost.postId},#{staffAddress})-->
+    <!--</insert>-->
+
+    <!--<update id="updateStaff" parameterType="Staff">-->
+        <!--update EAS_STAFF-->
+        <!--<set>-->
+            <!--<if test = 'staffName != null and staffName != "" '>-->
+                <!--staff_Name = #{staffName},-->
+            <!--</if>-->
+            <!--<if test = 'staffSex != null and staffSex != "" '>-->
+                <!--staff_Sex = #{staffSex},-->
+            <!--</if>-->
+            <!--<if test = 'staffPhone != null and staffPhone != "" '>-->
+                <!--staff_Phone = #{staffPhone},-->
+            <!--</if>-->
+            <!--<if test = 'staffIdNum != null and staffIdNum != "" '>-->
+                <!--staff_IdNum = #{staffIdNum},-->
+            <!--</if>-->
+            <!--<if test = 'staffPost != null and staffPost.postId != null and staffPost.postId != "" '>-->
+                <!--staff_PostId = #{staffPost.postId},-->
+            <!--</if>-->
+            <!--<if test = 'staffAddress != null and staffAddress != null and staffAddress != "" '>-->
+                <!--staffAddress = #{staffAddress},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where staff_id = #{staffId}-->
+    <!--</update>-->
+
+    <!--<select id="selectStaff" parameterType="Staff" resultMap="staffMap">-->
+        <!--select s.*,p.* from EAS_STAFF s-->
+        <!--inner join EAS_POST p on s.POST_ID = p.POST_ID-->
+        <!--<trim prefix="where" suffixOverrides="and||or" prefixOverrides="and||or">-->
+            <!--<if test = 'staffId != null and staffId != "" '>-->
+                <!--staff_id = #{staffId} and-->
+            <!--</if>-->
+            <!--<if test = 'staffName != null and staffName != "" '>-->
+                <!--staff_Name = #{staffName} and-->
+            <!--</if>-->
+            <!--<if test = 'staffSex != null and staffSex != "" '>-->
+                <!--staff_Sex = #{staffSex} and-->
+            <!--</if>-->
+            <!--<if test = 'staffPhone != null and staffPhone != "" '>-->
+                <!--staff_Phone = #{staffPhone} and-->
+            <!--</if>-->
+            <!--<if test = 'staffIdNum != null and staffIdNum != "" '>-->
+                <!--staff_IdNum = #{staffIdNum} and-->
+            <!--</if>-->
+            <!--<if test = 'staffPost != null and staffPost.postId != null and staffPost.postId != "" '>-->
+                <!--staff_Post = #{staffPost.postId} and-->
+            <!--</if>-->
+            <!--<if test = 'staffAddress != null and staffAddress != null and staffAddress != "" '>-->
+                <!--staffAddress = #{staffAddress} and-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--order by s.STAFF_ID-->
+    <!--</select>-->
+
+    <!--<select id="selectAllStaff" resultMap="staffMap">-->
+       <!--select s.*,p.* from EAS_STAFF s-->
+        <!--inner join EAS_POST p on s.POST_ID = p.POST_ID-->
+        <!--order by s.STAFF_ID-->
+    <!--</select>-->
+
+</mapper>

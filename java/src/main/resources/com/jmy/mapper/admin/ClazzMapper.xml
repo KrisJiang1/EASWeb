@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.ClazzDao">
+
+    <select id="listPage" resultType="java.util.Map">
+        select
+        c.CLAZZ_ID as clazzId,
+        c.CLAZZ_NAME as clazzName,
+        c.GRADE_NAME as gradeName,
+        m.MAJOR_ID as majorId,
+        m.MAJOR_NAME as majorName,
+        c.INSTRUCTOR_ID as instructorId,
+        s.STAFF_NAME as staffName
+        from EAS_CLAZZ c
+        left join EAS_MAJOR m on c.MAJOR_ID = m.MAJOR_ID
+        left join EAS_STAFF s on c.INSTRUCTOR_ID = s.STAFF_ID
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

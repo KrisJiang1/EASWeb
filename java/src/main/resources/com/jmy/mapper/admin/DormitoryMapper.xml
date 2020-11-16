@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jmy.dao.admin.DormitoryDao">
+
+    <select id="listPage" resultType="java.util.Map">
+        select
+        d.DORMITORY_ID as dormitoryId,
+        d.DORMITORY_NAME as dormitoryName,
+        d.DORMITORY_PEO_NUM as dormitoryPeoNum,
+        d.DORMITORY_BUILDING_ID as dormitoryBuildingId,
+        db.DORMITORY_BUILDING_NAME as dormitoryBuildingName,
+        from EAS_DORMITORY d
+        inner join EAS_DORMITORYBUILDING db on d.DORMITORY_BUILDING_ID = db.DORMITORY_BUILDING_ID
+        ${ew.customSqlSegment}
+
+</select>
+</mapper>

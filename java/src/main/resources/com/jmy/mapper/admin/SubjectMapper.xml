@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.SubjectDao">
+    <!--<resultMap id="subjectMap" type="Subject">-->
+        <!--<id column="subject_Id" property="subjectId"/>-->
+        <!--<result column="subject_Name" property="subjectName"/>-->
+        <!--<result column="subject_MajorOrMinor" property="subjectMajorOrMinor"/>-->
+        <!--<collection property="majorList" ofType="Major">-->
+            <!--<id column="major_Id" property="majorId"/>-->
+            <!--<result column="major_Name" property="majorName"/>-->
+            <!--<result column="major_SchoolSystem" property="majorSchoolSystem"/>-->
+        <!--</collection>-->
+    <!--</resultMap>-->
+
+    <!--<select id="selectMaxId" resultType="java.lang.Integer">-->
+        <!--select NVL(MAX(SUBJECT_ID),0)+1 from EAS_SUBJECT-->
+    <!--</select>-->
+
+
+    <!--<insert id="insertSubject" parameterType="Subject">-->
+        <!--insert into EAS_SUBJECT values (#{subjectId},#{subjectName},#{subjectMajorOrMinor})-->
+    <!--</insert>-->
+
+    <!--<update id="updateSubject" parameterType="Subject">-->
+        <!--update EAS_SUBJECT-->
+        <!--<set>-->
+            <!--<if test = 'subjectName != null and subjectName != "" '>-->
+                <!--subject_Name = #{subjectName} ,-->
+            <!--</if>-->
+            <!--<if test = 'subjectMajorOrMinor != null and subjectMajorOrMinor != "" '>-->
+                <!--subject_MajorOrMinor = #{subjectMajorOrMinor}-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where subject_Id = #{subjectId}-->
+    <!--</update>-->
+
+    <!--<delete id="deleteSubject" parameterType="java.lang.Integer">-->
+        <!--delete from EAS_SUBJECT where subject_Id = #{subjectId}-->
+    <!--</delete>-->
+
+    <!--<select id="selectSubject" resultMap="subjectMap">-->
+        <!--select * from EAS_SUBJECT su-->
+        <!--inner join EAS_MAJOR_SUBJECE_REL ms on su.SUBJECT_ID = ms.SUBJECT_ID-->
+        <!--inner join EAS_MAJOR m on m.MAJOR_ID = ms.MAJOR_ID-->
+        <!--<trim prefix="where" suffixOverrides="and||or" prefixOverrides="and||or">-->
+            <!--<if test = 'subjectId != null and subjectId != "" '>-->
+                <!--su.subject_Id = #{subjectId} and-->
+            <!--</if>-->
+            <!--<if test = 'subjectName != null and subjectName != "" '>-->
+                <!--subject_Name = #{subjectName} and-->
+            <!--</if>-->
+            <!--<if test = 'subjectMajorOrMinor != null and subjectMajorOrMinor != "" '>-->
+                <!--subject_MajorOrMinor = #{subjectMajorOrMinor}-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--order by su.subject_Id-->
+    <!--</select>-->
+
+    <!--<select id="selectAllSubject" resultMap="subjectMap">-->
+        <!--select * from EAS_SUBJECT su-->
+        <!--left join EAS_MAJOR_SUBJECE_REL ms on su.SUBJECT_ID = ms.SUBJECT_ID-->
+        <!--left join EAS_MAJOR m on m.MAJOR_ID = ms.MAJOR_ID-->
+        <!--order by su.subject_Id-->
+    <!--</select>-->
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.TeacherDao">
+
+    <!--<resultMap id="teacherMap" type="Teacher">-->
+        <!--<id column="teacher_Id" property="teacherId"/>-->
+        <!--<result column="teacher_Name" property="teacherName"/>-->
+        <!--<result column="teacher_Sex" property="teacherSex"/>-->
+        <!--<result column="teacher_Phone" property="teacherPhone"/>-->
+        <!--<result column="teacher_IdNum" property="teacherIdNum"/>-->
+        <!--<result column="teacher_Address" property="teacherAddress"/>-->
+
+        <!--<association property="teacherPost" javaType="Post">-->
+            <!--<id column="post_Id" property="postId"/>-->
+            <!--<result column="post_Name" property="postName"/>-->
+        <!--</association>-->
+
+        <!--<association property="teacherMajor" javaType="Major">-->
+            <!--<id column="major_Id" property="majorId"/>-->
+            <!--<result column="major_Name" property="majorName"/>-->
+            <!--<result column="major_SchoolSystem" property="majorSchoolSystem"/>-->
+        <!--</association>-->
+
+        <!--<collection property="teaTeaClazzList" javaType="java.util.ArrayList" ofType="Clazz">-->
+            <!--<id column="clazz_Id" property="clazzId"/>-->
+            <!--<result column="clazz_Name" property="clazzName"/>-->
+            <!--<result column="grade_Name" property="gradeName"/>-->
+            <!--<association property="clazzInstructor" javaType="Staff">-->
+                <!--<id column="staff_Id" property="staffId"/>-->
+                <!--<result column="staff_Name" property="staffName"/>-->
+                <!--<result column="staff_Sex" property="staffSex"/>-->
+                <!--<result column="staff_Phone" property="staffPhone"/>-->
+                <!--<result column="staff_IdNum" property="staffIdNum"/>-->
+                <!--<result column="staff_Address" property="staffAddress"/>-->
+            <!--</association>-->
+            <!--<association property="clazzMajor" javaType="Major">-->
+                <!--<id column="major_Id" property="majorId"/>-->
+                <!--<result column="major_Name" property="majorName"/>-->
+                <!--<result column="major_SchoolSystem" property="majorSchoolSystem"/>-->
+            <!--</association>-->
+        <!--</collection>-->
+    <!--</resultMap>-->
+
+    <!--<select id="selectMaxId" resultType="java.lang.Integer">-->
+        <!--select NVL(MAX(TEACHER_ID),0)+1 from EAS_TEACHER-->
+    <!--</select>-->
+
+    <!--<insert id="insertTeacher" parameterType="Teacher">-->
+        <!--insert into EAS_TEACHER values-->
+        <!--(#{teacherId},#{teacherName},#{teacherSex},#{teacherPhone},#{teacherIdNum},#{teacherPost.postId},#{teacherMajor.majorId},#{teacherAddress})-->
+    <!--</insert>-->
+
+    <!--<update id="updateTeacher" parameterType="Teacher">-->
+        <!--update EAS_TEACHER-->
+        <!--<set>-->
+            <!--<if test = 'teacherName != null and teacherName != "" '>-->
+                <!--teacher_Name = #{teacherName},-->
+            <!--</if>-->
+            <!--<if test = 'teacherSex != null and teacherSex != "" '>-->
+                <!--teacher_Sex = #{teacherSex},-->
+            <!--</if>-->
+            <!--<if test = 'teacherPhone != null and teacherPhone != "" '>-->
+                <!--teacher_Phone = #{teacherPhone},-->
+            <!--</if>-->
+            <!--<if test = 'teacherIdNum != null and teacherIdNum != "" '>-->
+                <!--teacher_IdNum = #{teacherIdNum},-->
+            <!--</if>-->
+            <!--<if test = 'teacherPost != null and teacherPost.postId != null and teacherPost.postId != "" '>-->
+                <!--teacher_PostId = #{teacherPost.postId},-->
+            <!--</if>-->
+            <!--<if test = 'teacherAddress != null and teacherAddress != "" '>-->
+                <!--teacher_Address = #{teacherAddress},-->
+            <!--</if>-->
+            <!--<if test = 'teacherMajor != null and teacherMajor.majorId != null and teacherMajor.majorId != "" '>-->
+                <!--teacher_MajorId = #{teacherMajor.majorId}-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where teacher_id = #{teacherId}-->
+    <!--</update>-->
+
+    <!--<delete id="deleteTeacher" parameterType="java.lang.Integer">-->
+        <!--delete from EAS_TEACHER where TEACHER_ID = #{teacherId}-->
+    <!--</delete>-->
+
+    <!--<select id="selectTeacher" parameterType="Teacher" resultMap="teacherMap">-->
+        <!--select * from EAS_TEACHER t-->
+        <!--inner join EAS_MAJOR m on t.MAJOR_ID = m.MAJOR_ID-->
+        <!--inner join EAS_POST p on t.POST_ID = p.POST_ID-->
+        <!--inner join EAS_TEACHER_CLAZZ_REL tc on t.TEACHER_ID = tc.TEACHER_ID-->
+        <!--inner join EAS_CLAZZ c on tc.CLAZZ_ID = c.CLAZZ_ID-->
+        <!--<trim prefix="where" suffixOverrides="and||or" prefixOverrides="and||or">-->
+            <!--<if test = 'teacherId != null and teacherId != "" '>-->
+                <!--t.teacher_Id = #{teacherId} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherName != null and teacherName != "" '>-->
+                <!--teacher_Name = #{teacherName} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherSex != null and teacherSex != "" '>-->
+                <!--teacher_Sex = #{teacherSex} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherPhone != null and teacherPhone != "" '>-->
+                <!--teacher_Phone = #{teacherPhone} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherIdNum != null and teacherIdNum != "" '>-->
+                <!--teacher_IdNum = #{teacherIdNum} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherPost != null and teacherPost.postId != null and teacherPost.postId != "" '>-->
+                <!--t.teacher_PostId = #{teacherPost.postId} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherAddress != null and teacherAddress != "" '>-->
+                <!--teacher_Address = #{teacherAddress} and-->
+            <!--</if>-->
+            <!--<if test = 'teacherMajor != null and teacherMajor.majorId != null and teacherMajor.majorId != "" '>-->
+                <!--t.teacher_MajorId = #{teacherMajor.majorId}-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--order by t.TEACHER_ID-->
+    <!--</select>-->
+
+    <!--<select id="selectAllTeacher" resultMap="teacherMap">-->
+       <!--select * from EAS_TEACHER t-->
+        <!--inner join EAS_MAJOR m on t.MAJOR_ID = m.MAJOR_ID-->
+        <!--inner join EAS_POST p on t.POST_ID = p.POST_ID-->
+        <!--inner join EAS_TEACHER_CLAZZ_REL tc on t.TEACHER_ID = tc.TEACHER_ID-->
+        <!--inner join EAS_CLAZZ c on tc.CLAZZ_ID = c.CLAZZ_ID-->
+        <!--order by t.TEACHER_ID-->
+    <!--</select>-->
+
+</mapper>

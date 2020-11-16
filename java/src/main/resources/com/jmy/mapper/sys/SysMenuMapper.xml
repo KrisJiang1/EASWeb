@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.sys.SysMenuDao">
+
+    <!--<resultMap id="menuMap" type="SysMenu">-->
+        <!--<id column="menu_Id" property="menuId"/>-->
+        <!--<result column="parent_Id" property="parentId"/>-->
+        <!--<result column="menu_Name" property="menuName"/>-->
+        <!--<result column="menu_Url" property="menuUrl"/>-->
+        <!--<result column="menu_Perms" property="menuPerms"/>-->
+        <!--<result column="menu_Type" property="menuType"/>-->
+        <!--<result column="menu_Icon" property="menuIcon"/>-->
+        <!--<result column="menu_Order_Num" property="menuOrderNum"/>-->
+    <!--</resultMap>-->
+
+
+    <!--<select id="getMenuList" resultMap="menuMap">-->
+      <!--select * from SYS_MENU-->
+    <!--</select>-->
+</mapper>

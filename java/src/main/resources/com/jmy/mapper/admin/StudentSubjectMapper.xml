@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.StudentSubjectDao">
+
+    <!--<resultMap id="studentSubjectMap" type="com.jmy.dto.StudentSubject">-->
+        <!--<association property="student" javaType="Student">-->
+            <!--<id column="student_Id" property="studentId"/>-->
+            <!--<result column="student_Name" property="studentName"/>-->
+            <!--<result column="student_Sex" property="studentSex"/>-->
+            <!--<result column="student_Phone" property="studentPhone"/>-->
+            <!--<result column="student_IdNum" property="studentIdNum"/>-->
+            <!--<association property="studentClazz" javaType="Clazz">-->
+                <!--<id column="clazz_id" property="clazzId"/>-->
+                <!--<result column="clazz_name" property="clazzName"/>-->
+                <!--<result column="grade_Name" property="gradeName"/>-->
+                <!--<association property="clazzInstructor" javaType="Staff">-->
+                    <!--<id column="staff_Id" property="staffId"/>-->
+                    <!--<result column="staff_Name" property="staffName"/>-->
+                    <!--<result column="staff_Sex" property="staffSex"/>-->
+                    <!--<result column="staff_Phone" property="staffPhone"/>-->
+                    <!--<result column="staff_IdNum" property="staffIdNum"/>-->
+                    <!--<result column="staff_Address" property="staffAddress"/>-->
+                <!--</association>-->
+            <!--</association>-->
+            <!--<association property="studentMajor" javaType="Major">-->
+                <!--<id column="major_Id" property="majorId"/>-->
+                <!--<result column="major_Name" property="majorName"/>-->
+                <!--<result column="major_SchoolSystem" property="majorSchoolSystem"/>-->
+            <!--</association>-->
+        <!--</association>-->
+        <!--<association property="subject" javaType="Subject">-->
+            <!--<id column="subject_Id" property="subjectId"/>-->
+            <!--<result column="subject_Name" property="subjectName"/>-->
+        <!--</association>-->
+    <!--</resultMap>-->
+    <!---->
+    <!--<insert id="insertStudentSubject" parameterType="com.jmy.dto.StudentSubject">-->
+        <!--insert into EAS_STUDENT_SUBJECT_REL values-->
+        <!--(#{student.studentId},#{subject.subjectId})-->
+    <!--</insert>-->
+
+    <!--<delete id="deleteStudentSubject" parameterType="com.jmy.dto.StudentSubject">-->
+        <!--delete from EAS_STUDENT_SUBJECT_REL where-->
+        <!--<if test="subject!=null and subject.subjectId!=null and subject.subjectId != '' ">-->
+          <!--SUBJECT_ID = #{subject.subjectId} and-->
+        <!--</if>-->
+        <!--STUDENT_ID = #{student.studentId}-->
+    <!--</delete>-->
+
+    <!--<select id="selectStudentSubject" parameterType="com.jmy.dto.StudentSubject" resultMap="studentSubjectMap">-->
+        <!--select * from EAS_STUDENT_SUBJECT_REL-->
+        <!--<trim prefix="where" suffixOverrides="and||or" prefixOverrides="and||or">-->
+            <!--<if test = 'student!=null and student.studentId != null and student.studentId != "" '>-->
+                <!--student_id = #{studentId} and-->
+            <!--</if>-->
+            <!--<if test='subject!=null and subject.subjectId!=null and subject.subjectId != "" '>-->
+                <!--SUBJECT_ID = #{subject.subjectId} and-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--order by s.STUDENT_ID-->
+    <!--</select>-->
+
+</mapper>

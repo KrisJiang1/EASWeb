@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmy.dao.admin.MajorDao">
+
+    <select id="listPage" resultMap="majorMap">
+        select
+        m.MAJOR_ID as majorId,
+        m.MAJOR_NAME as majorName,
+        m.MAJOR_SCHOOL_SYSTEM as majorSchoolSystem,
+        ms.SUBJECT_ID as subjectId,
+        s.SUBJECT_NAME as subjectName,
+        c.CLAZZ_ID as clazzId,
+        c.CLAZZ_NAME as clazzName
+        from EAS_MAJOR m
+        left join EAS_MAJOR_SUBJECT_REL ms on m.MAJOR_ID = ms.MAJOR_ID
+        left join EAS_SUBJECT s on ms.SUBJECT_ID = s.SUBJECT_ID
+        left join EAS_CLAZZ c on m.MAJOR_ID = c.MAJOR_ID
+        ${ew.customSqlSegment}
+    </select>
+</mapper>
